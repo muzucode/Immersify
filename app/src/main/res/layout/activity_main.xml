@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/kanT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="randnumtitle"
+        android:text="Kanji:"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/kanC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="Kanji Character"
+        android:text="Kanji Character"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="70sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kanT" />
+
+    <TextView
+        android:id="@+id/engT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="Kanji Character"
+        android:text="Meaning:"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kanC" />
+
+    <TextView
+        android:id="@+id/engC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="Kanji Character"
+        android:text="English Meaning"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/engT" />
+
+    <Button
+        android:id="@+id/buttonpass"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="64dp"
+        android:text="Pass!"
+        app:layout_constraintBottom_toTopOf="@+id/buttonfail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/engC"
+        android:backgroundTint="#99FF7B"
+        android:textColor="@android:color/black"
+        />
+
+
+    <Button
+        android:id="@+id/buttonfail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Fail."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonpass"
+        android:backgroundTint="#FF7B7B"
+        android:textColor="@android:color/black"/>
+
+    <Button
+        android:id="@+id/buttonunsure"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#FFDB7B"
+        android:text="Unsure"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/buttonpass"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="62dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:background="#D3D3D3"
+        android:gravity="center"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#353535"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/kanT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/kanT" />
+
+    <Button
+        android:id="@+id/buttonrestart"
+        android:layout_width="70dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#D3D3D3"
+        android:text="New"
+        android:textColor="#353535"
+        app:layout_constraintBottom_toBottomOf="@+id/kanT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/kanT"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
