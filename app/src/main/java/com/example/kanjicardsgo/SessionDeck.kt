@@ -1,18 +1,26 @@
 package com.example.kanjicardsgo
 
+
 import java.util.*
 import kotlin.math.roundToInt
 
-class SessionDeck(var deck: MutableList<MainActivity.Word>) {
-    var active = deck
+class SessionDeck(private val deck: MutableList<MainActivity.Word>) {
+    private var active = deck.toMutableList()
 
     // Drops inputted card
     fun drop(word: MainActivity.Word){
-        println(active)
-        this.active.removeAt(this.active.indexOf(word))
-        println(active)
+        active.removeAt(active.indexOf(word))
     }
+
+    // Load new card, calls drop() after loading
     fun newCard(): MainActivity.Word {
+
+        // "Finished screen once zero cards in active deck"
+        if(active.size == 0){
+            return MainActivity.Word("Finished", "Finished")
+        }
+
+        // Create rand number
         val rand = Random()
         val rn = rand.nextInt(active.size)
 
@@ -21,12 +29,14 @@ class SessionDeck(var deck: MutableList<MainActivity.Word>) {
         // Remove the randomly selected card from the main deck
         this.drop(active.elementAt(rn))
         // Return the randomly selected card
+        println(deck)
+        println(active)
         return word
     }
 
     // Resets deck to all original cards
-    fun reset(){
-        this.active = deck
+    fun newSession(){
+        active = deck.toMutableList()
     }
 
 

@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         var myDeck = SessionDeck(kanjiData)
 
 
+
         // Update card
         fun newCard(): Unit {
 
@@ -74,7 +75,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun newSession(): Unit {
-            newCard()
+
+            // Reset the session deck to contain all cards
+            myDeck.newSession()
+            // Load a new card
+            var newWord = myDeck.newCard()
+            binding.kanT.text = "Kanji:"
+            binding.kanC.text = newWord.jpn
+            binding.engT.text = "Meaning:"
+            binding.engC.text = newWord.meaning
 
 
             passes = 0
