@@ -27,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
+
+
         // Create variables
         var myTitle = Word("Japanese","Meaning")
         var myWord: Word
@@ -38,17 +42,32 @@ class MainActivity : AppCompatActivity() {
         lateinit var score: String
         val kanjiData = mutableListOf<Word>()
 
+//        Debug Vars
+//        val deck_1: Deck = Deck(mutableListOf<Word>())
+//        val deck_2: Deck = Deck(mutableListOf<Word>())
+//        val deck_3: Deck = Deck(mutableListOf<Word>())
+//
+//        println(deck_1.id)
+//        println(deck_3.id)
+//        println(Deck.count)
+//        println("HELLO THERE!")
+
+
         // Add kanji from res to kanjiData list
         csvReader().open(resources.openRawResource(R.raw.kanji_list)) {
             readAllAsSequence().forEach { row ->
                 var newWord = Word(row.elementAt(0),row.elementAt(1))
                 kanjiData.add(newWord)
+
             }
         }
 
-        // Create session deck
-        var myDeck = SessionDeck(kanjiData)
 
+
+
+
+        // Create SessionDeck (inherits Deck)
+        var myDeck = SessionDeck(kanjiData)
 
 
         // Update card
@@ -61,9 +80,8 @@ class MainActivity : AppCompatActivity() {
             // Randomly load another card in the sessionDeck
             // Update views with kanjiData card contents
             var newWord = myDeck.newCard()
-            binding.kanT.text = "Kanji:"
+
             binding.kanC.text = newWord.jpn
-            binding.engT.text = "Meaning:"
             binding.engC.text = newWord.meaning
 
             attempts += 1
@@ -80,9 +98,9 @@ class MainActivity : AppCompatActivity() {
             myDeck.newSession()
             // Load a new card
             var newWord = myDeck.newCard()
-            binding.kanT.text = "Kanji:"
+
             binding.kanC.text = newWord.jpn
-            binding.engT.text = "Meaning:"
+
             binding.engC.text = newWord.meaning
 
 
