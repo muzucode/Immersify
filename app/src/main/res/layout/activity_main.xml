@@ -81,14 +81,15 @@
         android:id="@+id/buttonfail"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FF7B7B"
         android:text="Fail."
+        android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonpass"
-        android:backgroundTint="#FF7B7B"
-        android:textColor="@android:color/black"/>
+        app:layout_constraintTop_toBottomOf="@+id/buttonpass" />
 
     <Button
         android:id="@+id/buttonunsure"

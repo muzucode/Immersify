@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">KanjiCardsGo</string>
-    <string
-        name="my_string"
-        >XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+    <string name="vocab_decks_description">Here you have the option to <b>manage</b> your flashcard decks by <b>creating, removing, or modifying</b> one or more decks.  You also have the option to <b>study a flashcard deck</b>.  Decks can be pre-made decks or user-created ones.</string>
+    <string name="study_description">Here you have the option to select between studying <b>vocab</b> or <b>grammar</b>.</string>
+    <string name="main_menu_description">Your language learning journey starts <b>here</b>.  Choose an option below and see where it takes you!</string>
+    <string name="title_activity_study_decks">StudyDecksActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>
