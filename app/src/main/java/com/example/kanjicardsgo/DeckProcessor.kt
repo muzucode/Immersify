@@ -42,14 +42,11 @@ class DeckProcessor {
                 }
             }
 
-
-
             getCheckedAndRead()
             val sessionDeck: SessionDeck = createSessionDeck(sessionDeckData)
 
             return sessionDeck
         }
-
 
 
     }
