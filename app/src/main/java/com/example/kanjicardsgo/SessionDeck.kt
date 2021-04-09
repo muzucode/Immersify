@@ -1,10 +1,11 @@
 package com.example.kanjicardsgo
 
 
+import java.io.Serializable
 import java.util.*
 import kotlin.math.roundToInt
 
-class SessionDeck(deck: MutableList<MainActivity.Word>): Deck(deck){
+class SessionDeck(deck: MutableList<MainActivity.Word>): Deck(deck), Serializable{
     private var active = deck.toMutableList()
 
     // Drops inputted card

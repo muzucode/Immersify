@@ -9,12 +9,13 @@ import org.apache.commons.io.IOUtils
 import java.io.InputStream
 import java.util.*
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
+import java.io.Serializable
 
 
 class MainActivity : AppCompatActivity() {
 
     // Class for Kanji Objects
-    class Word(var jpn: String, var meaning:String){
+    class Word(var jpn: String, var meaning:String) : Serializable{
 
     }
 

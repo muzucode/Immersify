@@ -24,8 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:hint="Kanji Character"
-        android:text="Kanji Character"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="70sp"
@@ -52,8 +50,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:hint="Kanji Character"
-        android:text="English Meaning"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="50sp"
@@ -61,27 +57,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/engT" />
 
+
     <Button
         android:id="@+id/buttonpass"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#6DCC97"
         android:text="Pass!"
+        android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/buttonfail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/engC"
-        android:backgroundTint="#99FF7B"
-        android:textColor="@android:color/black"
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/buttonunsure" />
 
     <Button
         android:id="@+id/buttonfail"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:backgroundTint="#FF7B7B"
         android:text="Fail."
         android:textColor="@android:color/black"
@@ -95,11 +90,12 @@
         android:id="@+id/buttonunsure"
         android:layout_width="135dp"
         android:layout_height="50dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="#FFDB7B"
         android:text="Unsure"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/buttonpass"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/engC" />
 
     <TextView
         android:id="@+id/score"
