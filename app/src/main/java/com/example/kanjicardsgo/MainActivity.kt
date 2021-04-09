@@ -1,14 +1,12 @@
 package com.example.kanjicardsgo
 
 import android.os.Bundle
-import android.se.omapi.Session
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kanjicardsgo.databinding.ActivityMainBinding
 import org.apache.commons.io.IOUtils
 import java.io.InputStream
-import java.util.*
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
 import java.io.Serializable
 

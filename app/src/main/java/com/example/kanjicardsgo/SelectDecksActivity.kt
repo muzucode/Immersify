@@ -3,12 +3,8 @@ package com.example.kanjicardsgo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.CheckBox
 import com.example.kanjicardsgo.databinding.ActivitySelectdecksBinding
-import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
-
-import java.io.Serializable
 
 class SelectDecksActivity : AppCompatActivity(){
 
