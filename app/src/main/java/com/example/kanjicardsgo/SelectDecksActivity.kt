@@ -1,10 +1,14 @@
 package com.example.kanjicardsgo
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CheckBox
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kanjicardsgo.databinding.ActivitySelectdecksBinding
+
 
 class SelectDecksActivity : AppCompatActivity(){
 
@@ -15,7 +19,6 @@ class SelectDecksActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_selectdecks)
-
 
         // Create view binding instance
         binding = ActivitySelectdecksBinding.inflate(layoutInflater)
@@ -34,10 +37,21 @@ class SelectDecksActivity : AppCompatActivity(){
         // CLICK EVENTS
         // Button Study
         binding.buttonstudyselected.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            val sessionDeck = DeckProcessor.combineDecks(checkboxes, resources)
-            intent.putExtra("SessionDeck", sessionDeck)
-            startActivity(intent)
+            if(!DeckProcessor.isEmpty(checkboxes)){
+                val intent = Intent(this, MainActivity::class.java)
+                val sessionDeck = DeckProcessor.combineDecks(checkboxes, resources)
+                intent.putExtra("SessionDeck", sessionDeck)
+                startActivity(intent)
+            }
+
+            else {
+                AlertDialog.Builder(this@SelectDecksActivity)
+                    .setTitle("No decks selected")
+                    .setMessage("Please select at least one deck to study.")
+                    .setPositiveButton(R.string.ok, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show()
+            }
         }
 
 

@@ -48,6 +48,17 @@ class DeckProcessor {
             return sessionDeck
         }
 
+        fun isEmpty(checkboxes: List<CheckBox>): Boolean{
+            for(element in checkboxes){
+                if(element.isChecked){
+                    val empty = false
+                    return empty
+                }
+            }
+
+            return true
+        }
+
 
     }
 

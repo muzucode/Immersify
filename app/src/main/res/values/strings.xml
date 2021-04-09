@@ -4,6 +4,8 @@
     <string name="study_description">Here you have the option to select between studying <b>vocab</b> or <b>grammar</b>.</string>
     <string name="main_menu_description">Your language learning journey starts <b>here</b>.  Choose an option below and see where it takes you!</string>
     <string name="title_activity_study_decks">StudyDecksActivity</string>
+    <string name="select_decks_description">Here you have the ability to <b>select flashcard decks</b> to study vocab from.</string>
+    <string name="ok">Ok</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
