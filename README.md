@@ -4,8 +4,8 @@ KanjiCardsGo is a flashcards App for Android, written in Kotlin.  Poised to be a
 ## Table of Contents
 
 * _App Screenshots_
-
 * _Planning (Whiteboarding)_
+* _Quick Links_
 
 ---
 
@@ -21,3 +21,6 @@ Physical whiteboarding was used, thus, there are only pictures of the whiteboard
 
 Pictures can be found here: [Whiteboarding](https://github.com/muzucode/KanjiCardsGo/tree/master/Screenshots/Whiteboarding)
 
+## Quick Links
+
+* [_Activities & Classes_](https://github.com/muzucode/KanjiCardsGo/tree/master/app/src/main/java/com/example/kanjicardsgo)
