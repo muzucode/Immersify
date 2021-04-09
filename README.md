@@ -5,7 +5,7 @@ Kanji Flashcards App for Android, written in Kotlin.  Poised to be a full-fledge
 
 * _App Screenshots_
 
-*_Planning (Whiteboarding)_
+* _Planning (Whiteboarding)_
 
 ---
 
