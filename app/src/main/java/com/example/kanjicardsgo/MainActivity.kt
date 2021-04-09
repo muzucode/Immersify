@@ -1,6 +1,7 @@
 package com.example.kanjicardsgo
 
 import android.os.Bundle
+import android.se.omapi.Session
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /** Called when the user taps the Send button */
+        /* Called when the user taps the Send button */
 
 
 
@@ -68,9 +69,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        // Create SessionDeck (inherits Deck)
-        var myDeck = SessionDeck(kanjiData)
-
+        // Create SessionDeck from intent passed over
+        var myDeck: SessionDeck = getIntent().getSerializableExtra("SessionDeck") as SessionDeck;
 
         // Update card
         fun newCard(): Unit {

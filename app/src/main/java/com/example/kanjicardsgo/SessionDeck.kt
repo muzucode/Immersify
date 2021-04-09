@@ -5,7 +5,7 @@ import java.io.Serializable
 import java.util.*
 import kotlin.math.roundToInt
 
-class SessionDeck(deck: MutableList<MainActivity.Word>): Deck(deck), Serializable{
+class SessionDeck(deck: MutableList<MainActivity.Word>): Deck(deck){
     private var active = deck.toMutableList()
 
     // Drops inputted card
