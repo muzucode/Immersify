@@ -3,7 +3,7 @@ Kanji Flashcards App for Android, written in Kotlin.  Poised to be a full-fledge
 
 ## Table of Contents
 
-* [_App Screenshots_](https://github.com/muzucode/KanjiCardsGo/blob/master/README.md#app-screenshots)
+* _App Screenshots_
 
 * _Planning (Whiteboarding)_
 
