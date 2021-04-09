@@ -19,5 +19,5 @@ Screenshots can be found here: [Screenshots](https://github.com/muzucode/KanjiCa
 
 Physical whiteboarding was used, thus, there are only pictures of the whiteboarding.  
 
-Pictures can be found here: [Whiteboarding](
+Pictures can be found here: [Whiteboarding](https://github.com/muzucode/KanjiCardsGo/tree/master/Screenshots/Whiteboarding)
 
