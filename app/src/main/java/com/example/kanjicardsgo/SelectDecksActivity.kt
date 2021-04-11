@@ -5,9 +5,12 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.CheckBox
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kanjicardsgo.databinding.ActivitySelectdecksBinding
+import com.example.kanjicardsgo.managedecks.ManageDecksActivity
 
 
 class SelectDecksActivity : AppCompatActivity(){
@@ -24,7 +27,7 @@ class SelectDecksActivity : AppCompatActivity(){
         binding = ActivitySelectdecksBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Create variables \\
+        // Create view variables \\
         // List of checkboxes
         val checkboxes: List<CheckBox> = listOf(
                 binding.checkBox1,
@@ -53,6 +56,13 @@ class SelectDecksActivity : AppCompatActivity(){
                     .show()
             }
         }
+
+
+        binding.buttonmanagedecks.setOnClickListener{
+            val i: Intent = Intent(this, ManageDecksActivity::class.java)
+            startActivity(i)
+        }
+
 
 
     }

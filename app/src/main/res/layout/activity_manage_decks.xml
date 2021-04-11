@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".managedecks.ManageDecksActivity">
+
+    <TextView
+        android:id="@+id/textViewManageDecks"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Manage decks:"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_create_deck"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:text="Create Deck"
+        app:layout_constraintEnd_toEndOf="@+id/textViewManageDecks"
+        app:layout_constraintStart_toStartOf="@+id/textViewManageDecks"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/create_deck"
+        app:layout_constraintEnd_toEndOf="@+id/textViewManageDecks"
+        app:layout_constraintStart_toStartOf="@+id/textViewManageDecks"
+        app:layout_constraintTop_toBottomOf="@+id/textViewManageDecks" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/edit_deck"
+        app:layout_constraintEnd_toEndOf="@+id/textViewManageDecks"
+        app:layout_constraintStart_toStartOf="@+id/textViewManageDecks"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:text="Edit Deck"
+        app:layout_constraintEnd_toEndOf="@+id/textViewManageDecks"
+        app:layout_constraintStart_toStartOf="@+id/textViewManageDecks"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:text="Remove Deck"
+        app:layout_constraintEnd_toEndOf="@+id/textViewManageDecks"
+        app:layout_constraintStart_toStartOf="@+id/textViewManageDecks"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/remove_deck"
+        app:layout_constraintEnd_toEndOf="@+id/textViewManageDecks"
+        app:layout_constraintStart_toStartOf="@+id/textViewManageDecks"
+        app:layout_constraintTop_toBottomOf="@+id/button_create_deck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
