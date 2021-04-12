@@ -1,24 +1,22 @@
 package com.example.kanjicardsgo
 
 
-import java.io.Serializable
 import java.util.*
-import kotlin.math.roundToInt
 
-class SessionDeck(deck: MutableList<MainActivity.Word>): Deck(deck){
+class SessionDeckB(deck: MutableList<MainActivity.Card>): DeckB(deck){
     private var active = deck.toMutableList()
 
     // Drops inputted card
-    fun drop(word: MainActivity.Word){
-        active.removeAt(active.indexOf(word))
+    fun drop(card: MainActivity.Card){
+        active.removeAt(active.indexOf(card))
     }
 
     // Load new card, calls drop() after loading
-    fun newCard(): MainActivity.Word {
+    fun newCard(): MainActivity.Card {
 
         // "Finished screen once zero cards in active deck"
         if(active.size == 0){
-            return MainActivity.Word("Finished", "Finished")
+            return MainActivity.Card("Finished", "Finished")
         }
 
         // Create rand number

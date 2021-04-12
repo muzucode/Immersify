@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.kanjicardsgo.data_classes.Book.Book
+import com.example.kanjicardsgo.data_classes.User.User
 import com.example.kanjicardsgo.databinding.ActivityMainBinding
 import org.apache.commons.io.IOUtils
 import java.io.InputStream
@@ -14,9 +16,11 @@ import java.io.Serializable
 class MainActivity : AppCompatActivity() {
 
     // Class for Kanji Objects
-    class Word(var jpn: String, var meaning:String) : Serializable{
+    class Card(var jpn: String, var meaning:String) : Serializable{
 
     }
+
+
 
     private lateinit var binding: ActivityMainBinding
 
@@ -29,19 +33,22 @@ class MainActivity : AppCompatActivity() {
 
         /* Called when the user taps the Send button */
 
+        val qBook = Book(0)
+
+
 
 
 
         // Create variables
-        var myTitle = Word("Japanese","Meaning")
-        var myWord: Word
-        myWord = Word("火","Fire")
+        var myTitle = Card("Japanese","Meaning")
+        var myCard: Card
+        myCard = Card("火","Fire")
 
         var attempts: Int = 0
         var passes: Int = 0
         var fails: Int = 0
         lateinit var score: String
-        val kanjiData = mutableListOf<Word>()
+        val kanjiData = mutableListOf<Card>()
 
 //        Debug Vars
 //        val deck_1: Deck = Deck(mutableListOf<Word>())
@@ -57,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         // Add kanji from res to kanjiData list
         csvReader().open(resources.openRawResource(R.raw.kanji_list)) {
             readAllAsSequence().forEach { row ->
-                var newWord = Word(row.elementAt(0),row.elementAt(1))
+                var newWord = Card(row.elementAt(0),row.elementAt(1))
                 kanjiData.add(newWord)
 
             }
@@ -68,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // Create SessionDeck from intent passed over
-        var myDeck: SessionDeck = getIntent().getSerializableExtra("SessionDeck") as SessionDeck;
+        var myDeck: SessionDeckB = getIntent().getSerializableExtra("SessionDeck") as SessionDeckB;
 
         // Update card
         fun newCard(): Unit {

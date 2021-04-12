@@ -8,12 +8,12 @@ class DeckProcessor {
 
     companion object{
 
-        fun combineDecks(checkboxes: List<CheckBox>, resources: Resources): SessionDeck {
+        fun combineDecks(checkboxes: List<CheckBox>, resources: Resources): SessionDeckB {
 
-            var sessionDeckData = mutableListOf<MainActivity.Word>()
+            var sessionDeckData = mutableListOf<MainActivity.Card>()
 
-            fun createSessionDeck(sessionDeckData: MutableList<MainActivity.Word>): SessionDeck{
-                val sessionDeck = SessionDeck(sessionDeckData)
+            fun createSessionDeck(sessionDeckData: MutableList<MainActivity.Card>): SessionDeckB{
+                val sessionDeck = SessionDeckB(sessionDeckData)
                 // Returns Session Deck instance
                 return sessionDeck
             }
@@ -26,7 +26,7 @@ class DeckProcessor {
                 // Add all entries from R csv to deckData
                 csvReader().open(resources.openRawResource(rawResID)) {
                     readAllAsSequence().forEach { row ->
-                        var word = MainActivity.Word(row.elementAt(0), row.elementAt(1))
+                        var word = MainActivity.Card(row.elementAt(0), row.elementAt(1))
                         sessionDeckData.add(word)
                     }
                 }
@@ -43,7 +43,7 @@ class DeckProcessor {
             }
 
             getCheckedAndRead()
-            val sessionDeck: SessionDeck = createSessionDeck(sessionDeckData)
+            val sessionDeck: SessionDeckB = createSessionDeck(sessionDeckData)
 
             return sessionDeck
         }

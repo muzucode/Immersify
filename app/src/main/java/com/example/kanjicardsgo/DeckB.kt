@@ -2,7 +2,7 @@ package com.example.kanjicardsgo
 
 import java.io.Serializable
 
-open class Deck constructor(val deck: MutableList<MainActivity.Word>): Serializable {
+open class DeckB constructor(val deck: MutableList<MainActivity.Card>): Serializable {
 
     // Companion
     companion object{
