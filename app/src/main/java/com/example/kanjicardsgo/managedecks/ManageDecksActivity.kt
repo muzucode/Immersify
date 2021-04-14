@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kanjicardsgo.R
 import com.example.kanjicardsgo.databinding.ActivityManageDecksBinding
-import com.example.kanjicardsgo.databinding.ActivitySelectdecksBinding
+import com.example.kanjicardsgo.managedecks.createdeck.CreateDeckActivity
+import com.example.kanjicardsgo.managedecks.createdeck.CreateDeckNameActivity
 
 class ManageDecksActivity : AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class ManageDecksActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonCreateDeck.setOnClickListener{
-            val i: Intent = Intent(this, CreateDeckActivity::class.java)
+            val i: Intent = Intent(this, CreateDeckNameActivity::class.java)
             startActivity(i)
         }
     }
