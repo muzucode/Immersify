@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         /* Called when the user taps the Send button */
 
-        val qBook = Book(0)
+        val qBook = Book(0,26)
 
 
 
