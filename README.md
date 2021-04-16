@@ -24,3 +24,4 @@ Pictures can be found here: [Whiteboarding](https://github.com/muzucode/KanjiCar
 ## Quick Links
 
 * [_Project Activities/Class Files_](https://github.com/muzucode/KanjiCardsGo/tree/master/app/src/main/java/com/example/kanjicardsgo)
+* [_Project Schemata (Room-SQLite)_](https://github.com/muzucode/KanjiCardsGo/tree/master/app/src/main/java/com/example/kanjicardsgo/data_classes)
