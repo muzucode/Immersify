@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KanjiCardsGo">
-        <activity android:name=".managedecks.createdeck.CreateDeckNameActivity"></activity>
+        <activity android:name=".SignUp.SignUpActivity"></activity>
+        <activity android:name=".managedecks.createdeck.CreateDeckNameActivity" />
         <activity android:name=".managedecks.createdeck.CreateDeckActivity" />
         <activity android:name=".managedecks.ManageDecksActivity" />
         <activity android:name=".MainMenuActivity">

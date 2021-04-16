@@ -23,5 +23,9 @@ class ManageDecksActivity : AppCompatActivity() {
             val i: Intent = Intent(this, CreateDeckNameActivity::class.java)
             startActivity(i)
         }
+
+        
+
+
     }
 }
