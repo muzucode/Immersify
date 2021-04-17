@@ -11,6 +11,7 @@
     <string name="edit_deck"><b>Edit</b> a current deck of flashcards</string>
     <string name="add_flashcard_description">Create a <b>term-definition pair</b> below and select <b><i>Add</i></b> to add the flashcard to your new deck.</string>
     <string name="add_deck_name_description">Give your deck a <b>name</b>.</string>
+    <string name="signup_here_option"><u>Or sign up here</u></string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
