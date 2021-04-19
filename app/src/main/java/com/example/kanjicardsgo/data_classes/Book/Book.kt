@@ -1,13 +1,14 @@
 package com.example.kanjicardsgo.data_classes.Book
 
 import androidx.room.*
+import com.example.kanjicardsgo.data_classes.Track.Track
 import com.example.kanjicardsgo.data_classes.User.User
 
 // Entities
 @Entity
 data class Book(
         @PrimaryKey(autoGenerate = true) val bid: Int?,
-        val nativeUserId: Int?
+        val nativeTrackId: Int?
 
 )
 
@@ -29,13 +30,22 @@ data class Card(
 
 )
 
-data class UserWithBooks(
-        @Embedded val deck: User,
+data class UserWithTracks(
+        @Embedded val user: User,
         @Relation(
                 parentColumn = "uid",
                 entityColumn = "nativeUserId"
         )
-        val books: List<Book>
+        val tracks: List<Track>
+)
+
+data class TrackWithBook(
+        @Embedded val track: Track,
+        @Relation(
+                parentColumn = "tid",
+                entityColumn = "nativeTrackId"
+        )
+        val book: Book
 )
 
 // Relationships

@@ -10,9 +10,10 @@ import com.example.kanjicardsgo.data_classes.User.User
 data class Track(
         @PrimaryKey(autoGenerate = true) val tid: Int?,
         val nativeUserId: Int?,
+        val name: String,
         val language: String,
         val mode: String,
-        val currentPhase: String
+        val currentPhase: Int
         )
 
 @Entity

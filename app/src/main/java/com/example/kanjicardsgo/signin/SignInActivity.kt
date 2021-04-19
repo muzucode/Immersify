@@ -3,15 +3,16 @@ package com.example.kanjicardsgo.signin
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.kanjicardsgo.MainMenuActivity
 import com.example.kanjicardsgo.R
 import com.example.kanjicardsgo.data_classes.AppDatabase
-import com.example.kanjicardsgo.data_classes.CurrentUser
+import com.example.kanjicardsgo.data_classes.ActiveEnv
+import com.example.kanjicardsgo.data_classes.User.User
 import com.example.kanjicardsgo.databinding.ActivitySignInBinding
 import com.example.kanjicardsgo.signup.SignUpActivity
+import com.example.kanjicardsgo.track_route.SelectTrackActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -49,13 +50,20 @@ class SignInActivity : AppCompatActivity() {
         binding.buttonSignIn.setOnClickListener{
 
             // Take in user and pass input
-            val usernameIn: String = binding.editTextUsername2.text.toString()
+            var usernameIn: String = binding.editTextUsername2.text.toString()
             val passwordIn: String = binding.editTextPassword2.text.toString()
 
             // Handle sign-in attempt
             GlobalScope.launch{
-                // Admin access variable
+
+                // Admin access variables
                 val adminAccess = true
+                userDao.insertUser(User(null,"admin","admin","admin"))
+                usernameIn = "admin"
+
+
+
+
 
                 // Try get password of user in DB
                     // If it exists, then enter app
@@ -64,10 +72,10 @@ class SignInActivity : AppCompatActivity() {
 
                 try{
                     if(adminAccess || userDao.findByName(usernameIn).password == passwordIn){
-                        val i: Intent = Intent(this@SignInActivity, MainMenuActivity::class.java)
+                        val i: Intent = Intent(this@SignInActivity, SelectTrackActivity::class.java)
 
                         // If successful login, then set current user global userId to that User's id
-                        CurrentUser.userId = userDao.findByName(usernameIn).uid
+                        ActiveEnv.userId = userDao.findByName(usernameIn).uid
                         startActivity(i)
                     }
                     else{

@@ -1,10 +1,10 @@
 package com.example.kanjicardsgo.data_classes
 
-class CurrentUser {
+class ActiveEnv {
 
     companion object{
         var userId: Int? = 0
-        var bookId: Int? = 0
+        var trackId: Int? = 0
     }
 
 }

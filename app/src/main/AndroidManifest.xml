@@ -15,14 +15,15 @@
         android:theme="@style/Theme.KanjiCardsGo">
         <activity android:name=".track_route.AddTrackActivity"></activity>
         <activity android:name=".track_route.SelectTrackActivity" />
-        <activity android:name=".signin.SignInActivity" />
-        <activity android:name=".signup.SignUpActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".signin.SignInActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+        <activity android:name=".signup.SignUpActivity"/>
+
         <activity android:name=".managedecks.createdeck.CreateDeckNameActivity" />
         <activity android:name=".managedecks.createdeck.CreateDeckActivity" />
         <activity android:name=".managedecks.ManageDecksActivity" />

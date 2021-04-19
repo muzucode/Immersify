@@ -24,6 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonTrack1" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonTrack4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -54,6 +55,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonTrack3" />
+
+    <Button
+        android:id="@+id/buttonTrack5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTrack4" />
 
     <Button
         android:id="@+id/buttonTrack3"
@@ -71,6 +84,7 @@
         android:id="@+id/buttonAddTrack"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:text="Add Track"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

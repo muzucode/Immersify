@@ -1,16 +1,10 @@
 package com.example.kanjicardsgo
 
-import android.app.AlertDialog
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View.GONE
-import android.widget.ArrayAdapter
 import android.widget.CheckBox
-import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
-import com.example.kanjicardsgo.data_classes.CurrentUser
 import com.example.kanjicardsgo.databinding.ActivitySelectdecksBinding
 import com.example.kanjicardsgo.managedecks.ManageDecksActivity
 
