@@ -5,10 +5,12 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.View.GONE
 import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import com.example.kanjicardsgo.data_classes.CurrentUser
 import com.example.kanjicardsgo.databinding.ActivitySelectdecksBinding
 import com.example.kanjicardsgo.managedecks.ManageDecksActivity
 
@@ -37,24 +39,30 @@ class SelectDecksActivity : AppCompatActivity(){
                 binding.checkBox5
         )
 
+        binding.checkBox1.visibility = GONE
+        binding.checkBox2.visibility = GONE
+        binding.checkBox3.visibility = GONE
+        binding.checkBox4.visibility = GONE
+        binding.checkBox5.visibility = GONE
         // CLICK EVENTS
         // Button Study
         binding.buttonstudyselected.setOnClickListener{
-            if(!DeckProcessor.isEmpty(checkboxes)){
-                val intent = Intent(this, MainActivity::class.java)
-                val sessionDeck = DeckProcessor.combineDecks(checkboxes, resources)
-                intent.putExtra("SessionDeck", sessionDeck)
-                startActivity(intent)
-            }
+//            if(!DeckProcessor.isEmpty(checkboxes)){
+//                val intent = Intent(this, MainActivity::class.java)
+//                val sessionDeck = DeckProcessor.combineDecks(checkboxes, resources)
+//                intent.putExtra("SessionDeck", sessionDeck)
+//                startActivity(intent)
+//            }
+//
+//            else {
+//                AlertDialog.Builder(this@SelectDecksActivity)
+//                    .setTitle("No decks selected")
+//                    .setMessage("Please select at least one deck to study.")
+//                    .setPositiveButton(R.string.ok, null)
+//                    .setIcon(android.R.drawable.ic_dialog_alert)
+//                    .show()
+//            }
 
-            else {
-                AlertDialog.Builder(this@SelectDecksActivity)
-                    .setTitle("No decks selected")
-                    .setMessage("Please select at least one deck to study.")
-                    .setPositiveButton(R.string.ok, null)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show()
-            }
         }
 
 

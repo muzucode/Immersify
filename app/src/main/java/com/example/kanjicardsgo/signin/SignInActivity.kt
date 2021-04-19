@@ -9,6 +9,7 @@ import androidx.room.Room
 import com.example.kanjicardsgo.MainMenuActivity
 import com.example.kanjicardsgo.R
 import com.example.kanjicardsgo.data_classes.AppDatabase
+import com.example.kanjicardsgo.data_classes.CurrentUser
 import com.example.kanjicardsgo.databinding.ActivitySignInBinding
 import com.example.kanjicardsgo.signup.SignUpActivity
 import kotlinx.coroutines.GlobalScope
@@ -64,6 +65,9 @@ class SignInActivity : AppCompatActivity() {
                 try{
                     if(adminAccess || userDao.findByName(usernameIn).password == passwordIn){
                         val i: Intent = Intent(this@SignInActivity, MainMenuActivity::class.java)
+
+                        // If successful login, then set current user global userId to that User's id
+                        CurrentUser.userId = userDao.findByName(usernameIn).uid
                         startActivity(i)
                     }
                     else{

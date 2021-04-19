@@ -53,6 +53,9 @@ interface DeckDao {
     @Query("SELECT MAX(did) FROM deck")
     suspend fun getMaxId(): Int?
 
+    @Query("SELECT * FROM deck WHERE nativeBookId IN (:bookId)")
+    suspend fun getDecksByBook(bookId: Int?): List<Deck>
+
     @Update
     suspend fun updateName(deck: Deck)
 
@@ -61,6 +64,7 @@ interface DeckDao {
 
     @Insert
     suspend fun insertAll(decks: List<Deck>)
+
 
 }
 

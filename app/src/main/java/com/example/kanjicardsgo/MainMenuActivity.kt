@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.kanjicardsgo.data_classes.CurrentUser
 import com.example.kanjicardsgo.databinding.ActivityMainBinding
 import com.example.kanjicardsgo.databinding.ActivityMainMenuBinding
 
