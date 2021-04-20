@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.kanjicardsgo.MainMenuActivity
@@ -51,46 +52,52 @@ class SelectTrackActivity : AppCompatActivity() {
             element.visibility = Button.GONE
         }
 
+        // Set the 'no tracks found prompt as gone' initially
+        binding.textViewNoTracksFound.visibility = TextView.GONE
+
         // Create 4 tracks with ActiveEnv user ID
         GlobalScope.launch {
-//            trackDao.insertOne(Track(null, ActiveEnv.userId, "English 1", "English", "Course", 0))
-//            trackDao.insertOne(Track(null, ActiveEnv.userId, "Japanese 1", "English","Course", 0))
+//            trackDao.insertOne(Track(null, ActiveEnv.user.uid, "English 1", "English", "Course", 0))
+//            trackDao.insertOne(Track(null, ActiveEnv.user.uid, "Japanese 1", "English","Course", 0))
 
             // Get all tracks for the ActiveEnv user
-            val userTracks = trackDao.getAllByUserId(ActiveEnv.userId)
+            val userTracks = trackDao.getAllByUserId(ActiveEnv.user.uid)
 
-            // Display all tracks as buttons
             runOnUiThread{
+                // If user has no tracks, display 'no tracks found prompt'
+                if (userTracks.isEmpty()) {
+                    binding.textViewNoTracksFound.visibility = TextView.VISIBLE
+                }
+
+                // Display all tracks as buttons
                 for(i in 0..userTracks.size-1){
                     tracks[i].visibility = Button.VISIBLE
                     tracks[i].text = userTracks[i].name
                     tracks[i].setOnClickListener{
 
-                        // Set global track Id
-                        ActiveEnv.trackId = userTracks[i].tid
+                    // Set active environment track
+                    ActiveEnv.track = userTracks[i]
 
-                    // Event to navigate to main menu
+                    // Navigate to main menu
                     val intent: Intent = Intent(this@SelectTrackActivity, MainMenuActivity::class.java)
                     startActivity(intent)
                     }
                 }
+
+                // If there are 5 tracks that the user has, then the button is disabled
+                if(userTracks.size >= 5){
+                    binding.buttonAddTrack.isClickable = false
+                    binding.buttonAddTrack.text = "Add track (Max of 5)"
+                }
+
             }
         }
 
 
 
-
-        // 1.) getAllByUserId
-
-
-
-
-
-
-
         binding.buttonAddTrack.setOnClickListener{
-            val i: Intent = Intent(this, AddTrackActivity::class.java)
-            startActivity(i)
+                val i: Intent = Intent(this, AddTrackActivity::class.java)
+                startActivity(i)
         }
 
 

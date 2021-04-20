@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
-import com.example.kanjicardsgo.MainMenuActivity
 import com.example.kanjicardsgo.R
 import com.example.kanjicardsgo.data_classes.AppDatabase
 import com.example.kanjicardsgo.data_classes.ActiveEnv
@@ -74,8 +73,8 @@ class SignInActivity : AppCompatActivity() {
                     if(adminAccess || userDao.findByName(usernameIn).password == passwordIn){
                         val i: Intent = Intent(this@SignInActivity, SelectTrackActivity::class.java)
 
-                        // If successful login, then set current user global userId to that User's id
-                        ActiveEnv.userId = userDao.findByName(usernameIn).uid
+                        // If successful login, then set environment user
+                        ActiveEnv.user = userDao.findByName(usernameIn)
                         startActivity(i)
                     }
                     else{

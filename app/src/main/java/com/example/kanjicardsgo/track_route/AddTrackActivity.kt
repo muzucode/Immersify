@@ -39,7 +39,7 @@ class AddTrackActivity : AppCompatActivity() {
 
             // Insert track into DB
             GlobalScope.launch{
-                trackDao.insertOne(Track(null, ActiveEnv.userId, "English 1", "English", "Course", 0))
+                trackDao.insertOne(Track(null, ActiveEnv.user.uid, "English 1", "English", "Course", 0))
             }
 
             val i: Intent = Intent(this, SelectTrackActivity::class.java)
@@ -50,7 +50,7 @@ class AddTrackActivity : AppCompatActivity() {
 
             // Insert track into DB
             GlobalScope.launch{
-                trackDao.insertOne(Track(null, ActiveEnv.userId, "Japanese 1", "Japanese", "Course", 0))
+                trackDao.insertOne(Track(null, ActiveEnv.user.uid, "Japanese 1", "Japanese", "Course", 0))
             }
 
             val i: Intent = Intent(this, SelectTrackActivity::class.java)

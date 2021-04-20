@@ -7,7 +7,7 @@
     tools:context=".MainMenuActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewCourseTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -25,7 +25,7 @@
         android:layout_height="75dp"
         android:layout_marginTop="16dp"
         android:text="Learn"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textViewCourseTitle"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
@@ -34,7 +34,7 @@
         android:layout_height="75dp"
         android:layout_marginTop="16dp"
         android:text="Study"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textViewCourseTitle"
         app:layout_constraintTop_toBottomOf="@+id/buttonlearn" />
 
     <Button
@@ -44,7 +44,7 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#FF6969"
         android:text="Battle"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textViewCourseTitle"
         app:layout_constraintTop_toBottomOf="@+id/buttonstudy" />
 
     <Button
@@ -54,7 +54,7 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#6DCC97"
         android:text="Social"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textViewCourseTitle"
         app:layout_constraintTop_toBottomOf="@+id/buttonbattle" />
 
     <TextView
@@ -65,9 +65,9 @@
         android:lineSpacingExtra="12sp"
         android:text="@string/main_menu_description"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="@+id/textViewCourseTitle"
+        app:layout_constraintStart_toStartOf="@+id/textViewCourseTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCourseTitle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

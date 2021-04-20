@@ -3,6 +3,7 @@ package com.example.kanjicardsgo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kanjicardsgo.data_classes.ActiveEnv
 import com.example.kanjicardsgo.databinding.ActivityMainMenuBinding
 
 class MainMenuActivity : AppCompatActivity() {
@@ -17,6 +18,9 @@ class MainMenuActivity : AppCompatActivity() {
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        // Set course name
+        binding.textViewCourseTitle.text = ActiveEnv.track.name
 
         // CLICK EVENTS
         // Button Study

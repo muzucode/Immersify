@@ -10,7 +10,12 @@ interface TrackDao {
     @Query("SELECT * FROM track")
     suspend fun getAll(): List<Track>
 
+    @Query("SELECT * FROM track WHERE tid IN (:trackId)")
+    suspend fun getById(trackId: Int?): Track
+
     @Query("SELECT * FROM track WHERE nativeUserId in (:userId)")
     suspend fun getAllByUserId(userId: Int?): List<Track>
+
+
 
 }
