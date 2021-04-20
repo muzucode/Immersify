@@ -7,12 +7,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/kanT"
+        android:id="@+id/cardTermTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:hint="randnumtitle"
-        android:text="Kanji:"
+        android:hint="Term title"
+        android:text="Term:"
         android:textAlignment="center"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/kanC"
+        android:id="@+id/cardTerm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -30,23 +30,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kanT" />
+        app:layout_constraintTop_toBottomOf="@+id/cardTermTitle" />
 
     <TextView
-        android:id="@+id/engT"
+        android:id="@+id/cardDefinitionTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:hint="Kanji Character"
-        android:text="Meaning:"
+        android:hint="Definition title"
+        android:text="Definition:"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kanC" />
+        app:layout_constraintTop_toBottomOf="@+id/cardTerm" />
 
     <TextView
-        android:id="@+id/engC"
+        android:id="@+id/cardDefinition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -55,7 +55,7 @@
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/engT" />
+        app:layout_constraintTop_toBottomOf="@+id/cardDefinitionTitle" />
 
 
     <Button
@@ -95,7 +95,7 @@
         android:text="Unsure"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/engC" />
+        app:layout_constraintTop_toBottomOf="@+id/cardDefinition" />
 
     <TextView
         android:id="@+id/score"
@@ -108,10 +108,10 @@
         android:textAlignment="center"
         android:textColor="#353535"
         android:textSize="18sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/kanT"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/cardTermTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/kanT" />
+        app:layout_constraintTop_toTopOf="@+id/cardTermTitle" />
 
     <Button
         android:id="@+id/buttonrestart"
@@ -121,9 +121,9 @@
         android:backgroundTint="#D3D3D3"
         android:text="New"
         android:textColor="#353535"
-        app:layout_constraintBottom_toBottomOf="@+id/kanT"
+        app:layout_constraintBottom_toBottomOf="@+id/cardTermTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/kanT"
+        app:layout_constraintTop_toTopOf="@+id/cardTermTitle"
         app:layout_constraintVertical_bias="1.0" />
 
 

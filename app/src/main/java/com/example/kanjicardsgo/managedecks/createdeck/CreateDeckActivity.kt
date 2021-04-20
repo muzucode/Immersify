@@ -5,9 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.kanjicardsgo.SelectDecksActivity
+import com.example.kanjicardsgo.data_classes.ActiveEnv
 import com.example.kanjicardsgo.data_classes.AppDatabase
-import com.example.kanjicardsgo.data_classes.Book.Card
-import com.example.kanjicardsgo.data_classes.Book.Deck
+import com.example.kanjicardsgo.data_classes.Deck.Card
+import com.example.kanjicardsgo.data_classes.Deck.Deck
 import com.example.kanjicardsgo.databinding.ActivityCreateDeckBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -25,8 +26,10 @@ class CreateDeckActivity : AppCompatActivity() {
         binding = ActivityCreateDeckBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         // Get deck name created on previous activity
         val newName = intent.getStringExtra("deckName").toString();
+
 
         // Create database
         val db = Room.databaseBuilder(
@@ -34,9 +37,11 @@ class CreateDeckActivity : AppCompatActivity() {
                 AppDatabase::class.java, "firstdb"
         ).build()
 
+
         // Instantiate deckDao
         val deckDao = db.deckDao()
         val cardDao = db.cardDao()
+
 
         // Instantiate qDeck and qCards, the temporary deck under construction
         lateinit var qDeck: Deck
@@ -47,7 +52,7 @@ class CreateDeckActivity : AppCompatActivity() {
         // Coroutine - Insert a deck, init qDeck
         GlobalScope.launch{
             // Insert qDeck into database
-            deckDao.insertOne(Deck(null, 26, "q"))
+            deckDao.insertOne(Deck(null, ActiveEnv.track.tid, "q"))
             // Save qDeck instance to a variable
             qDeck = deckDao.getByName("q")
         }
@@ -86,7 +91,7 @@ class CreateDeckActivity : AppCompatActivity() {
         // Publish deck button event
         binding.buttonPublish.setOnClickListener{
             // Convert mutable list to list
-            Collections.unmodifiableList(qCards)
+            qCards.toList()
 
             // Make sure cards list is not null
             if(qCards.size > 0){
@@ -95,7 +100,7 @@ class CreateDeckActivity : AppCompatActivity() {
                     // Insert all cards in q to database
                     cardDao.insertAll(qCards)
                     // Update qDeck to have desired name
-                    deckDao.updateName(Deck(qDeck.did, 26, newName))
+                    deckDao.updateName(Deck(qDeck.did, ActiveEnv.track.tid, newName))
 
                     // Print all the cards in Card db
                     var allCards = cardDao.getAll()

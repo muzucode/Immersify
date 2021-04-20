@@ -21,6 +21,7 @@ class CreateDeckNameActivity : AppCompatActivity() {
 
 
 
+        // Just take in deck name and pass to next activity
         binding.buttonConfirmDeckName.setOnClickListener(){
 
             val deckName: String = binding.editTextCreateDeckName.text.toString()

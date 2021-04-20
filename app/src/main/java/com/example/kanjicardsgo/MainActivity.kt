@@ -4,21 +4,21 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.kanjicardsgo.data_classes.Book.Book
+import androidx.room.Room
+import com.example.kanjicardsgo.data_classes.AppDatabase
+import com.example.kanjicardsgo.data_classes.Deck.Card
 import com.example.kanjicardsgo.data_classes.User.User
 import com.example.kanjicardsgo.databinding.ActivityMainBinding
 import org.apache.commons.io.IOUtils
 import java.io.InputStream
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.io.Serializable
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-
-    // Class for Kanji Objects
-    class Card(var jpn: String, var meaning:String) : Serializable{
-
-    }
 
 
 
@@ -31,126 +31,116 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /* Called when the user taps the Send button */
+        // Create database
+        val db = Room.databaseBuilder(
+                applicationContext,
+                AppDatabase::class.java, "firstdb"
+        ).build()
 
-        val qBook = Book(0,26)
+        // Instantiate trackDao
+        val cardDao = db.cardDao()
 
+        // Get designated deck IDs from prior activity
+        val selectedDeckIds = intent.getIntegerArrayListExtra("deckIds")
+        var sessionCards: MutableList<Card> = mutableListOf()
+        var sessionCardsInit: List<Card> = listOf()
 
-
-
-
-        // Create variables
-        var myTitle = Card("Japanese","Meaning")
-        var myCard: Card
-        myCard = Card("火","Fire")
-
+        // Generate random number between 0 and # of cards in sessionCards
+        var rand = Random()
+        var randNum: Int = 0
         var attempts: Int = 0
         var passes: Int = 0
         var fails: Int = 0
         lateinit var score: String
         val kanjiData = mutableListOf<Card>()
 
-//        Debug Vars
-//        val deck_1: Deck = Deck(mutableListOf<Word>())
-//        val deck_2: Deck = Deck(mutableListOf<Word>())
-//        val deck_3: Deck = Deck(mutableListOf<Word>())
-//
-//        println(deck_1.id)
-//        println(deck_3.id)
-//        println(Deck.count)
-//        println("HELLO THERE!")
-
-
-        // Add kanji from res to kanjiData list
-        csvReader().open(resources.openRawResource(R.raw.kanji_list)) {
-            readAllAsSequence().forEach { row ->
-                var newWord = Card(row.elementAt(0),row.elementAt(1))
-                kanjiData.add(newWord)
-
+        // Get all passed cards and save to sessionCards variable
+        GlobalScope.launch{
+            // If deckIds are not null,
+            if (selectedDeckIds != null) {
+                for(id in selectedDeckIds){
+                    // Get all cards and save to sessionCards
+                    val fetchedCards: List<Card> = cardDao.getByDeckId(id)
+                    sessionCards.addAll(fetchedCards)
+                    // Save an initial version of sessionCards that is immutable
+                    sessionCardsInit = sessionCards.toList()
+                    println("DECK ID IS $id")
+                }
             }
         }
 
 
-
-
-
-        // Create SessionDeck from intent passed over
-        var myDeck: SessionDeckB = getIntent().getSerializableExtra("SessionDeck") as SessionDeckB;
-
         // Update card
         fun newCard(): Unit {
 
-            // Load kanjiData at start ===================
-            // Create sessionDeck =================
-            // Randomly load card from sessionDeck ==============
-            // Remove loaded card from sessionDeck after loading
-            // Randomly load another card in the sessionDeck
-            // Update views with kanjiData card contents
-            var newWord = myDeck.newCard()
+            // Generate random number between 0 and # of cards in sessionCards
+            if(sessionCards.size >= 2){
+                randNum = rand.nextInt(sessionCards.size-1)
+                println("The size of the sessionCards deck is: ${sessionCards.size}")
+            }
+            else {
+                randNum = 0
+            }
 
-            binding.kanC.text = newWord.jpn
-            binding.engC.text = newWord.meaning
+            // Set term and definition to randomly selected card
+            // Remove card from sessionCards deck
+            if(sessionCards.isNotEmpty()){
+                binding.cardTerm.text = sessionCards[randNum].term
+                binding.cardDefinition.text = sessionCards[randNum].definition
+                sessionCards.removeAt(randNum)
+            }
+            else {
+                binding.cardTerm.text = "End of deck"
+                binding.cardDefinition.text = "End of deck"
+            }
 
             attempts += 1
         }
+
+
         // Update score
         fun updateScore(): Unit {
             score = "$passes/$attempts"
             binding.score.text = score
         }
 
+
         fun newSession(): Unit {
 
-            // Reset the session deck to contain all cards
-            myDeck.newSession()
-            // Load a new card
-            var newWord = myDeck.newCard()
+            // Set mutable sessionCards variable to original version for a deck reset
+            sessionCards = sessionCardsInit.toMutableList()
 
-            binding.kanC.text = newWord.jpn
-
-            binding.engC.text = newWord.meaning
-
+            // Load new card (the initial card)
+            newCard()
 
             passes = 0
             fails = 0
             attempts = 0
-            binding.score.visibility= View.GONE
+
+            // Update score with 0s
             updateScore()
         }
 
-        // Set views' contents
 
+        // Set views' contents
         binding.buttonpass.setOnClickListener{
             newCard()
             passes += 1
             updateScore()
-            binding.score.visibility= View.VISIBLE
         }
         binding.buttonfail.setOnClickListener{
             newCard()
             fails += 1
             updateScore()
-            binding.score.visibility= View.VISIBLE
         }
         binding.buttonunsure.setOnClickListener{
             newCard()
             fails += 1
             updateScore()
-            binding.score.visibility= View.VISIBLE
         }
         binding.buttonrestart.setOnClickListener{
             newSession()
         }
-
-
-        // Create inputstream from raw res file and convert to string
-        val textfile: InputStream = resources.openRawResource(R.raw.my_file)
-        val theString: String = IOUtils.toString(textfile, "UTF-8")
-        Log.d("myString", theString)
-
-
-
-
 
     }
 
