@@ -3,8 +3,8 @@ package com.example.kanjicardsgo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.kanjicardsgo.databinding.ActivityMainMenuBinding
 import com.example.kanjicardsgo.databinding.ActivityStudyBinding
+import com.example.kanjicardsgo.select_decks_route.SelectDecksActivity
 
 class StudyActivity : AppCompatActivity() {
 

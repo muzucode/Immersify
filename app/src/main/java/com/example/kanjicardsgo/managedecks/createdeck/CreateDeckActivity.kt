@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
-import com.example.kanjicardsgo.SelectDecksActivity
+import com.example.kanjicardsgo.select_decks_route.SelectDecksActivity
 import com.example.kanjicardsgo.data_classes.ActiveEnv
 import com.example.kanjicardsgo.data_classes.AppDatabase
 import com.example.kanjicardsgo.data_classes.Deck.Card

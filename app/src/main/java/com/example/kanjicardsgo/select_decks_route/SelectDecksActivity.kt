@@ -1,19 +1,20 @@
-package com.example.kanjicardsgo
+package com.example.kanjicardsgo.select_decks_route
 
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.view.View.GONE
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
+import com.example.kanjicardsgo.MainActivity
+import com.example.kanjicardsgo.R
 import com.example.kanjicardsgo.data_classes.ActiveEnv
 import com.example.kanjicardsgo.data_classes.AppDatabase
-import com.example.kanjicardsgo.data_classes.Deck.Card
-import com.example.kanjicardsgo.data_classes.Deck.Deck
 import com.example.kanjicardsgo.databinding.ActivitySelectdecksBinding
 import com.example.kanjicardsgo.managedecks.ManageDecksActivity
+import com.example.kanjicardsgo.managedecks.createdeck.CreateDeckNameActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -57,8 +58,15 @@ class SelectDecksActivity : AppCompatActivity(){
             element.visibility = CheckBox.GONE
         }
 
+        // Hide the 'no decks found' views initially
+        binding.textViewNoDecksFound.visibility = TextView.GONE
+        binding.buttonCreateADeck.visibility = Button.GONE
+        binding.textViewOrOption.visibility = TextView.GONE
+        binding.buttonAddExpressdeck.visibility = Button.GONE
+
+        // Set checkboxes text and visibility based on gotten decks in track
         GlobalScope.launch {
-//            // 3 sample decks with 2 cards in each
+////            // 3 sample decks with 2 cards in each
 //            deckDao.insertOne(Deck(null, ActiveEnv.track.tid, "First English Deck"))
 //            cardDao.insertOne(Card(null, 1, "Yooooo", "It means yo"))
 //            cardDao.insertOne(Card(null, 1, "Yooooo", "It means yo"))
@@ -83,9 +91,26 @@ class SelectDecksActivity : AppCompatActivity(){
                     }
                 }
             }
+            else {
+                //Show 'no decks found' views if no decks found
+                binding.textViewNoDecksFound.visibility = TextView.VISIBLE
+                binding.buttonCreateADeck.visibility = Button.VISIBLE
+                binding.textViewOrOption.visibility = TextView.VISIBLE
+                binding.buttonAddExpressdeck.visibility = Button.VISIBLE
 
+                // Assign intents to the two buttons
+                binding.buttonCreateADeck.setOnClickListener{
+                    val i: Intent = Intent(this@SelectDecksActivity, CreateDeckNameActivity::class.java)
+                    startActivity(i)
+                }
+                binding.buttonAddExpressdeck.setOnClickListener{
+                    val i: Intent = Intent(this@SelectDecksActivity, SelectExpressDecksActivity::class.java)
+                    startActivity(i)
+                }
+            }
 
         }
+
 
 
         // CLICK EVENTS

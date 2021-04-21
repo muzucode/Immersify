@@ -13,17 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KanjiCardsGo">
-        <activity android:name=".track_route.AddTrackActivity"></activity>
+        <activity android:name=".select_decks_route.SelectExpressDecksActivity"></activity>
+        <activity android:name=".track_route.AddTrackActivity" />
         <activity android:name=".track_route.SelectTrackActivity" />
         <activity android:name=".signin.SignInActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".signup.SignUpActivity"/>
-
+        <activity android:name=".signup.SignUpActivity" />
         <activity android:name=".managedecks.createdeck.CreateDeckNameActivity" />
         <activity android:name=".managedecks.createdeck.CreateDeckActivity" />
         <activity android:name=".managedecks.ManageDecksActivity" />
@@ -31,7 +31,7 @@
         <activity android:name=".StudyActivity" />
         <activity android:name=".VocabActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".SelectDecksActivity" />
+        <activity android:name=".select_decks_route.SelectDecksActivity" />
     </application>
 
 </manifest>
