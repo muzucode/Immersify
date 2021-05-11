@@ -29,5 +29,10 @@ class MainMenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.buttonlearn.setOnClickListener{
+            val i = Intent(this, PhaseMenuActivity::class.java)
+            startActivity(i)
+        }
+
     }
 }

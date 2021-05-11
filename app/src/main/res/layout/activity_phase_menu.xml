@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".PhaseMenuActivity">
+
+        <Button
+            android:id="@+id/buttonPhase1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#77C3FF"
+            android:fontFamily="sans-serif-light"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="The alphabet"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/ic_baseline_menu_book_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonPhase2"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#FFF06F"
+            android:fontFamily="sans-serif-light"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Numbers"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPhase1" />
+
+        <Button
+            android:id="@+id/buttonPhase3"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#FF5F96"
+            android:fontFamily="sans-serif-light"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Family"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPhase2" />
+
+        <Button
+            android:id="@+id/buttonPhase4"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#FF6B6B"
+            android:fontFamily="sans-serif-light"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Tenses I"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPhase3" />
+
+        <Button
+            android:id="@+id/buttonPhase5"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#95FF99"
+            android:fontFamily="sans-serif-light"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Button"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPhase4" />
+
+        <Button
+            android:id="@+id/buttonPhase6"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#6DB3AC"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="yo"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPhase5" />
+
+        <Button
+            android:id="@+id/buttonPhase7"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#6DB3AC"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="yo"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPhase6" />
+
+        <Button
+            android:id="@+id/buttonPhase8"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#6DB3AC"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="yo"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPhase7" />
+
+        <Button
+            android:id="@+id/buttonPhase9"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#6DB3AC"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="yo"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPhase8" />
+
+        <Button
+            android:id="@+id/buttonPhase10"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#6DB3AC"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="hhh"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPhase9" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

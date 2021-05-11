@@ -14,6 +14,7 @@ import com.example.kanjicardsgo.data_classes.AppDatabase
 import com.example.kanjicardsgo.data_classes.Track.Track
 import com.example.kanjicardsgo.databinding.ActivitySelectTrackBinding
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class SelectTrackActivity : AppCompatActivity() {
@@ -96,8 +97,8 @@ class SelectTrackActivity : AppCompatActivity() {
 
 
         binding.buttonAddTrack.setOnClickListener{
-                val i: Intent = Intent(this, AddTrackActivity::class.java)
-                startActivity(i)
+            val i: Intent = Intent(this, AddTrackActivity::class.java)
+            startActivity(i)
         }
 
 

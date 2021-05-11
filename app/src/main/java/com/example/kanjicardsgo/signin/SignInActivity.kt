@@ -13,6 +13,7 @@ import com.example.kanjicardsgo.databinding.ActivitySignInBinding
 import com.example.kanjicardsgo.signup.SignUpActivity
 import com.example.kanjicardsgo.track_route.SelectTrackActivity
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 
@@ -53,22 +54,18 @@ class SignInActivity : AppCompatActivity() {
             val passwordIn: String = binding.editTextPassword2.text.toString()
 
             // Handle sign-in attempt
-            GlobalScope.launch{
+
+            val signin: Job = GlobalScope.launch{
 
                 // Admin access variables
                 val adminAccess = true
                 userDao.insertUser(User(null,"admin","admin","admin"))
                 usernameIn = "admin"
 
-
-
-
-
                 // Try get password of user in DB
                     // If it exists, then enter app
                     // Else, show alert
                 // Catch if user does not exist and show alert
-
                 try{
                     if(adminAccess || userDao.findByName(usernameIn).password == passwordIn){
                         val i: Intent = Intent(this@SignInActivity, SelectTrackActivity::class.java)
@@ -103,6 +100,7 @@ class SignInActivity : AppCompatActivity() {
                 }
             }
 
+            signin.cancel()
         }
 
         binding.textViewSignUpHere.setOnClickListener{

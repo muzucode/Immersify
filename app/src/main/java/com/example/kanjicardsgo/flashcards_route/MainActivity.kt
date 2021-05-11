@@ -1,20 +1,14 @@
-package com.example.kanjicardsgo
+package com.example.kanjicardsgo.flashcards_route
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.kanjicardsgo.data_classes.AppDatabase
 import com.example.kanjicardsgo.data_classes.Deck.Card
-import com.example.kanjicardsgo.data_classes.User.User
 import com.example.kanjicardsgo.databinding.ActivityMainBinding
-import org.apache.commons.io.IOUtils
-import java.io.InputStream
-import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.io.Serializable
 import java.util.*
 
 
@@ -32,13 +26,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Create database
-        val db = Room.databaseBuilder(
-                applicationContext,
-                AppDatabase::class.java, "firstdb"
-        ).build()
+        val db = AppDatabase.getInstance(this)
 
         // Instantiate trackDao
         val cardDao = db.cardDao()
+
+        // Set score as INVISIBLE by default
+        binding.score.visibility = TextView.INVISIBLE
 
         // Get designated deck IDs from prior activity
         val selectedDeckIds = intent.getIntegerArrayListExtra("deckIds")
@@ -52,12 +46,12 @@ class MainActivity : AppCompatActivity() {
         var passes: Int = 0
         var fails: Int = 0
         lateinit var score: String
-        val kanjiData = mutableListOf<Card>()
 
         // Get all passed cards and save to sessionCards variable
         GlobalScope.launch{
             // If deckIds are not null,
             if (selectedDeckIds != null) {
+                println(selectedDeckIds)
                 for(id in selectedDeckIds){
                     // Get all cards and save to sessionCards
                     val fetchedCards: List<Card> = cardDao.getByDeckId(id)
@@ -72,6 +66,10 @@ class MainActivity : AppCompatActivity() {
 
         // Update card
         fun newCard(): Unit {
+
+            // Display score after the initial pass/fail
+            binding.score.visibility = TextView.VISIBLE
+
 
             // Generate random number between 0 and # of cards in sessionCards
             if(sessionCards.size >= 2){
@@ -119,6 +117,10 @@ class MainActivity : AppCompatActivity() {
 
             // Update score with 0s
             updateScore()
+
+            // Hide score marker on new game until pass/fail clicked
+            binding.score.visibility = TextView.INVISIBLE
+
         }
 
 

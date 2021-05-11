@@ -4,6 +4,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Relation
+import com.example.kanjicardsgo.data_classes.Phase.Phase
 import com.example.kanjicardsgo.data_classes.User.User
 
 @Entity
@@ -16,12 +17,6 @@ data class Track(
         val currentPhase: Int
         )
 
-@Entity
-data class Phase(
-        @PrimaryKey(autoGenerate = true) val pid: Int?,
-        val nativeTrackId: Int?,
-        val level: Int
-        )
 
 @Entity
 data class Section(
@@ -65,7 +60,7 @@ data class PhaseWithSections(
                 parentColumn = "pid",
                 entityColumn = "nativePhaseId"
         )
-        val phases: List<Phase>
+        val sections: List<Section>
 )
 
 data class SectionWithQuestions(

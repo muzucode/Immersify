@@ -8,7 +8,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
-import com.example.kanjicardsgo.MainActivity
+import com.example.kanjicardsgo.flashcards_route.MainActivity
 import com.example.kanjicardsgo.R
 import com.example.kanjicardsgo.data_classes.ActiveEnv
 import com.example.kanjicardsgo.data_classes.AppDatabase
@@ -20,8 +20,6 @@ import kotlinx.coroutines.launch
 
 
 class SelectDecksActivity : AppCompatActivity(){
-
-
 
     private lateinit var binding: ActivitySelectdecksBinding
 
@@ -74,10 +72,6 @@ class SelectDecksActivity : AppCompatActivity(){
 //            deckDao.insertOne(Deck(null, ActiveEnv.track.tid, "Second English Deck"))
 //            cardDao.insertOne(Card(null, 2, "HIIIII", "It means HI"))
 //            cardDao.insertOne(Card(null, 2, "HIIIII", "It means HI"))
-//
-//            deckDao.insertOne(Deck(null, ActiveEnv.track.tid, "Third English Deck"))
-//            cardDao.insertOne(Card(null, 3, "THIRD", "MEANS THIRD"))
-//            cardDao.insertOne(Card(null, 3, "THIRD", "MEANS THIRD"))
 
             // Get decks in the track
             val trackDecks = deckDao.getAllByTrackId(ActiveEnv.track.tid)
@@ -91,8 +85,9 @@ class SelectDecksActivity : AppCompatActivity(){
                     }
                 }
             }
+            //Show 'no decks found' views if no decks found
             else {
-                //Show 'no decks found' views if no decks found
+
                 binding.textViewNoDecksFound.visibility = TextView.VISIBLE
                 binding.buttonCreateADeck.visibility = Button.VISIBLE
                 binding.textViewOrOption.visibility = TextView.VISIBLE
@@ -110,12 +105,6 @@ class SelectDecksActivity : AppCompatActivity(){
             }
 
         }
-
-
-
-        // CLICK EVENTS
-        // Button Study
-
 
 
         binding.buttonstudyselected.setOnClickListener{

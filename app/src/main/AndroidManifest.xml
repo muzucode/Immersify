@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KanjiCardsGo">
-        <activity android:name=".select_decks_route.SelectExpressDecksActivity"></activity>
+        <activity android:name=".PhaseMenuActivity"></activity>
+        <activity android:name=".flashcards_route.FlashcardsResultsActivity" />
+        <activity android:name=".select_decks_route.SelectExpressDecksActivity" />
         <activity android:name=".track_route.AddTrackActivity" />
         <activity android:name=".track_route.SelectTrackActivity" />
         <activity android:name=".signin.SignInActivity">
@@ -30,7 +32,7 @@
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".StudyActivity" />
         <activity android:name=".VocabActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".flashcards_route.MainActivity" />
         <activity android:name=".select_decks_route.SelectDecksActivity" />
     </application>
 

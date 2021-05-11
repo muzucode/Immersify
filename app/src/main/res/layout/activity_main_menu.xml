@@ -21,45 +21,49 @@
 
     <Button
         android:id="@+id/buttonlearn"
-        android:layout_width="349dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginTop="16dp"
         android:text="Learn"
+        app:layout_constraintEnd_toEndOf="@+id/textViewCourseTitle"
         app:layout_constraintStart_toStartOf="@+id/textViewCourseTitle"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/buttonstudy"
-        android:layout_width="349dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginTop="16dp"
         android:text="Study"
+        app:layout_constraintEnd_toEndOf="@+id/textViewCourseTitle"
         app:layout_constraintStart_toStartOf="@+id/textViewCourseTitle"
         app:layout_constraintTop_toBottomOf="@+id/buttonlearn" />
 
     <Button
         android:id="@+id/buttonbattle"
-        android:layout_width="349dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#FF6969"
         android:text="Battle"
+        app:layout_constraintEnd_toEndOf="@+id/textViewCourseTitle"
         app:layout_constraintStart_toStartOf="@+id/textViewCourseTitle"
         app:layout_constraintTop_toBottomOf="@+id/buttonstudy" />
 
     <Button
         android:id="@+id/buttonsocial"
-        android:layout_width="349dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#6DCC97"
         android:text="Social"
+        app:layout_constraintEnd_toEndOf="@+id/textViewCourseTitle"
         app:layout_constraintStart_toStartOf="@+id/textViewCourseTitle"
         app:layout_constraintTop_toBottomOf="@+id/buttonbattle" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="347dp"
+        android:layout_width="0dp"
         android:layout_height="114dp"
         android:layout_marginTop="16dp"
         android:lineSpacingExtra="12sp"
