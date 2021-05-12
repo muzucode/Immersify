@@ -7,6 +7,8 @@ import androidx.room.RoomDatabase
 import com.example.kanjicardsgo.data_classes.Deck.*
 import com.example.kanjicardsgo.data_classes.Phase.Phase
 import com.example.kanjicardsgo.data_classes.Phase.PhaseDao
+import com.example.kanjicardsgo.data_classes.Section.Section
+import com.example.kanjicardsgo.data_classes.Section.SectionDao
 import com.example.kanjicardsgo.data_classes.Track.Track
 import com.example.kanjicardsgo.data_classes.Track.TrackDao
 import com.example.kanjicardsgo.data_classes.User.User
@@ -18,7 +20,8 @@ import com.example.kanjicardsgo.data_classes.User.UserDao
         Card::class,
         User::class,
         Track::class,
-        Phase::class), version = 1
+        Phase::class,
+        Section::class), version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -27,6 +30,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun trackDao(): TrackDao
     abstract fun phaseDao(): PhaseDao
+    abstract fun sectionDao(): SectionDao
 
     companion object {
 

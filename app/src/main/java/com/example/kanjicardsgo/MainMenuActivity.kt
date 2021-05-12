@@ -3,8 +3,10 @@ package com.example.kanjicardsgo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.kanjicardsgo.data_classes.ActiveEnv
 import com.example.kanjicardsgo.databinding.ActivityMainMenuBinding
+import kotlin.random.Random
 
 class MainMenuActivity : AppCompatActivity() {
 
@@ -30,6 +32,23 @@ class MainMenuActivity : AppCompatActivity() {
         }
 
         binding.buttonlearn.setOnClickListener{
+
+            // Create list of toast strings
+            val toastStrings: List<String> = listOf(
+                "Great choice!",
+                "Smart decision!",
+                "Sweet!",
+                "Sounds good!",
+                "Works for me!"
+            )
+
+            // Select a random string
+            val randString: String = toastStrings[(0..4).random()]
+
+            val toast = Toast.makeText(applicationContext,randString, Toast.LENGTH_SHORT)
+            toast.show()
+
+
             val i = Intent(this, PhaseMenuActivity::class.java)
             startActivity(i)
         }

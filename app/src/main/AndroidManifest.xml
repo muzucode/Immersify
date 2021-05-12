@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KanjiCardsGo">
-        <activity android:name=".PhaseMenuActivity"></activity>
+        <activity android:name=".learn_route.SectionsMenuActivity"></activity>
+        <activity android:name=".PhaseMenuActivity" />
         <activity android:name=".flashcards_route.FlashcardsResultsActivity" />
         <activity android:name=".select_decks_route.SelectExpressDecksActivity" />
         <activity android:name=".track_route.AddTrackActivity" />

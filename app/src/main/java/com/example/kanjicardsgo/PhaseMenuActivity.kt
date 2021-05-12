@@ -1,5 +1,6 @@
 package com.example.kanjicardsgo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -7,6 +8,7 @@ import androidx.room.Room
 import com.example.kanjicardsgo.data_classes.ActiveEnv
 import com.example.kanjicardsgo.data_classes.AppDatabase
 import com.example.kanjicardsgo.data_classes.Phase.Phase
+import com.example.kanjicardsgo.learn_route.SectionsMenuActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -55,6 +57,13 @@ class PhaseMenuActivity : AppCompatActivity() {
                     phaseButtons[i].text = gottenPhases[i].name
                     // Set phase button visibility
                     phaseButtons[i].visibility = Button.VISIBLE
+
+                    phaseButtons[i].setOnClickListener{
+                        val intent: Intent = Intent(this@PhaseMenuActivity, SectionsMenuActivity::class.java)
+                        // Pass name of phase so next activity knows what phase's sections to load
+                        intent.putExtra("phaseName", gottenPhases[i].name)
+                        startActivity(intent)
+                    }
                 }
             }
 

@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Relation
 import com.example.kanjicardsgo.data_classes.Phase.Phase
+import com.example.kanjicardsgo.data_classes.Section.Section
 import com.example.kanjicardsgo.data_classes.User.User
 
 @Entity
@@ -17,14 +18,6 @@ data class Track(
         val currentPhase: Int
         )
 
-
-@Entity
-data class Section(
-        @PrimaryKey(autoGenerate = true) val sid: Int?,
-        val nativePhaseId: Int?,
-        val name: String,
-        val level: Int
-        )
 
 @Entity
 data class Question(

@@ -11,5 +11,7 @@ data class Phase(
     // Describes what level in the track the phase is
     val level: Int?,
     // Describes how much of the phase is completed (percentage)
-    val completion: Double
+    val completion: Double,
+
+    val iconId: Int?
 )
